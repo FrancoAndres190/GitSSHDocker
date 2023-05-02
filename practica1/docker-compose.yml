@@ -1,0 +1,8 @@
+version: '3'
+services:
+  nginx:
+    image: rosario
+    ports:
+      - "83:80"
+    container_name: rosario
+    restart: always    

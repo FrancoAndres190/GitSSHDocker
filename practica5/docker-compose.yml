@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "85:80"
+    networks:
+      - red1
+networks:
+  red1:
+

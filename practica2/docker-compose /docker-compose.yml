@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nginx:
+    image: roldan
+    ports:
+      - "84:80"
+    container_name: roldan
+    restart: always
+    build:
+     context: ../
+     dockerfile: Dockerfile
+      

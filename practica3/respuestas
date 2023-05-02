@@ -1,0 +1,10 @@
+¿Cómo hago para ejecutarlo si no tiene el mismo nombre?
+usamos docker-compose -p "nombre proyecto" up -d
+
+
+¿Cómo hago para stopearlo?
+
+usamos docker-compose stop 
+
+Este lo usamos para especificar cual achico .yml queremos stopear 
+docker-compose -p  "nombre proyecto" stop
