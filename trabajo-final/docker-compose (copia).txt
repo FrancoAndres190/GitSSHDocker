@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: ./front/task-manager
+      dockerfile: Dockerfile
+    image: react-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql-db
+      - springboot-app
+  springboot-app:
+    build:
+      context: ./back/docker/TaskGenerator
+      dockerfile: Dockerfile
+    image: springboot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+  mysql-db:
+    image: mysql:latest
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_DATABASE: tasks_generator
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+volumes:
+  mysql-data:
+
+
